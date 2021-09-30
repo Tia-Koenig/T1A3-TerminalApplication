@@ -2,6 +2,9 @@ require_relative "message_intro.rb"
 require "csv"
 
 
+
+
+
 recipes = CSV.parse(File.read("recipes.csv"), headers: true, :header_converters => :symbol, :converters => :all)
 
 formatted_recipes = recipes.map do |row|
