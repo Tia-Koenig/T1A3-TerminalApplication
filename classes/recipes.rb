@@ -1,8 +1,8 @@
 class Recipes
     attr_reader
     def find_recipes(ingredients)
-        # File.read("recipes.csv")
-        # puts "Title: #{recipe[:title]}\nDirections: #{recipe[:directions]}"
-        puts "pie"
+        ingredients.each do |ingredient|
+            puts ingredient
+        end
     end
 end 
