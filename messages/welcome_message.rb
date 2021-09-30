@@ -1,0 +1,3 @@
+def welcome_message 
+    return "Welcome to my App - What to cook?\nTo use the app, please select an option in the menu below.\n\nFind a recipe will prompt you to enter an ingredient, once you enter an ingredient, it will ask if you have any more ingredients, if you do type yes, if not, type no, once the app has your ingredients, it will then search recipes and display them to you, you can then get to cooking!\n\nThe help option is there to give more information on the app if you get stuck or confused.\n\nThe Exit option will exit you out of the application.\n\n"
+end
