@@ -1,8 +1,38 @@
+require_relative "../recipes_data.rb"
+
 class Recipes
     attr_reader
+    def initialize
+        # Recipe class calls the formatted_recipes function and stores it's value in a variable called recipe_data. This can then be used in the class methods
+        @recipe_data = formatted_recipes()
+    end
+
+    # Find recipe method takes in an array of recipes as an argument and iterates over the first 5 recipes in recipe_data. For each recipe it gets the key and the value. Then i'm checking if the recipe value is included in the ingredients array, and if it is, I'm outputing the recipe details.
+    
     def find_recipes(ingredients)
-        ingredients.each do |ingredient|
-            puts ingredient
+        system 'clear'
+        @recipe_data[0..5].each do |recipe|
+            recipe.each do |key, value|
+                i = 1
+                if ingredients.include?(value) && ingredients.all?(value)
+                    puts "Title: #{recipe[:title]}"
+                    puts "Directions: #{recipe[:directions]}"
+                    puts "Ingredients List:"
+                    while i < 5
+                        ingredient = "ingredient0#{i}".to_sym
+                        quantity = if i == 1 
+                            "quantity".to_sym
+                        else
+                            "quantity0#{i}".to_sym
+                        end
+                        unit = "unit0#{i}".to_sym
+
+                        puts "Ingredient: #{recipe[ingredient]}: Quantity: #{recipe[quantity]} Unit: #{recipe[unit]}"
+                        i = i + 1
+                    end
+                    puts "---------------------------------------------------------------------------------------\n\n"
+                end
+            end
         end
     end
 end 

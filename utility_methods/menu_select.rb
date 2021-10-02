@@ -7,6 +7,7 @@ end
 
 # Start menu options
 
+
 def start_menu_options 
     return [
         {
@@ -24,3 +25,11 @@ def start_menu_options
     ]
 end
 
+# {
+#     name: "Add/Delete a Recipe"
+#     value: 4
+# },
+# {
+#     name: "Saved Recipes"
+#     value: 5
+# },
