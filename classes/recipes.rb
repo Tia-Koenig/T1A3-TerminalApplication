@@ -42,10 +42,16 @@ class Recipes
     end
 
     def add_recipe(recipe)
-        headers = ['ID','Title','Directions','Ingredient01','Quantity01','Unit01','Ingredient02','Quantity02','Unit02','Ingredient03','Quantity03','Unit03']
-        CSV.open("recipes.csv", "a+", :headers => recipe.keys, write_headers: true) do |csv|
-            csv << recipe.values
-          end
+        if (File.exist?("recipes.csv"))
+            CSV.open("recipes.csv", "a+") do |csv|
+                csv << recipe.values
+            end
+        else 
+            CSV.open("recipes.csv", "a+", :headers => recipe.keys, write_headers: true) do |csv|
+                csv << recipe.values
+            end
+        end
+        puts "Recipe added to file successfully!"
     end
 
     # def saved_recipes
