@@ -39,4 +39,17 @@ class Recipes
             end
         end
     end
-end 
+
+    def add_recipe(recipe="hash.csv")
+        require "csv"
+        # headers = ["title", "directions", "ingredients", "units" ]
+        CSV.open("recipes.csv", "a+") do |row|
+        end
+    end
+
+    # def saved_recipes
+    # end
+
+    # def remove_recipe
+    # end
+end

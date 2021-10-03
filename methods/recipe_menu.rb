@@ -1,5 +1,6 @@
 require_relative "../utility_methods/menu_select.rb"
 require_relative "../user_specific_methods/get_ingredient_list.rb"
+require_relative "../user_specific_methods/get_recipe_hash.rb"
 require_relative "../classes/recipes.rb"
 require_relative "main_menu.rb"
 require_relative "../utility_methods/exit.rb"
@@ -12,7 +13,7 @@ def recipes_menu_options
             value: 1
         },
         {
-            name: "Saved recipe list", 
+            name: "Add a recipe",
             value: 2
         },
         {
@@ -20,7 +21,7 @@ def recipes_menu_options
             value: 3
         },
         {
-            name: "Add a recipe",
+            name: "Saved recipe list", 
             value: 4
         },
         {
@@ -43,7 +44,7 @@ def recipe_menu(menu_options)
             recipes = Recipes.new
             recipes.find_recipes(ingredient_list)
         when 2
-
+            recipe_hash = get_recipe_hash()
         when 3
 
         when 4
