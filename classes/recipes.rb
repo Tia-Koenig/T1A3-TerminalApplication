@@ -43,7 +43,7 @@ class Recipes
 
     def add_recipe(recipe)
         if (File.exist?("recipes.csv"))
-            CSV.open("recipes.csv", "a+") do |csv|
+            CSV.open("recipes.csv", "a+", :row_sep => "\r\n") do |csv|
                 csv << recipe.values
             end
         else 
