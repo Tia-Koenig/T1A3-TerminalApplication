@@ -36,15 +36,16 @@ def recipes_menu_options
 end
 
 def recipe_menu(menu_options)
+    recipes = Recipes.new
     system 'clear'
     loop do
         case menu_select(menu_options)
         when 1
             ingredient_list = get_ingredient_list()
-            recipes = Recipes.new
             recipes.find_recipes(ingredient_list)
         when 2
             recipe_hash = get_recipe_hash()
+            recipes.add_recipe(recipe_hash)
         when 3
 
         when 4

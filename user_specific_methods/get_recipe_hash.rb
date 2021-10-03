@@ -1,5 +1,8 @@
+require_relative "../recipes_data.rb"
+
 def get_recipe_hash
 
+    recipes = formatted_recipes()
     yes_or_no = ""
 
     i = 1
@@ -19,6 +22,7 @@ def get_recipe_hash
     unit = gets.chomp
 
     recipe_hash = {
+        ID: recipes.length + 1,
         title: title,
         directions: directions,
         "ingredient0#{i}".to_sym => ingredient,
@@ -26,7 +30,6 @@ def get_recipe_hash
         "unit0#{i}".to_sym => unit
     }
 
-    p recipe_hash
     while yes_or_no != "no"
         i = i + 1
         puts "Do you have any other ingredients to add? yes or no"
@@ -52,8 +55,6 @@ def get_recipe_hash
                     "unit#{i}".to_sym => unit
                 )
             end
-            
-            p recipe_hash
         elsif yes_or_no == "no"
             break
         else
@@ -61,5 +62,6 @@ def get_recipe_hash
         end
     end
     
-    p recipe_hash
+    return recipe_hash
+
 end

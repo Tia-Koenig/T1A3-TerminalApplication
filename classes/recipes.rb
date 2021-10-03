@@ -1,4 +1,5 @@
 require_relative "../recipes_data.rb"
+require "csv"
 
 class Recipes
     attr_reader 
@@ -12,7 +13,7 @@ class Recipes
     
     def find_recipes(ingredients)
         system 'clear'
-        @recipe_data[0..5].each do |recipe|
+        @recipe_data.each do |recipe|
             recipe.each do |key, value|
                 i = 1
                 if ingredients.include?(value)
@@ -40,11 +41,11 @@ class Recipes
         end
     end
 
-    def add_recipe(recipe="hash.csv")
-        require "csv"
-        # headers = ["title", "directions", "ingredients", "units" ]
-        CSV.open("recipes.csv", "a+") do |row|
-        end
+    def add_recipe(recipe)
+        headers = ['ID','Title','Directions','Ingredient01','Quantity01','Unit01','Ingredient02','Quantity02','Unit02','Ingredient03','Quantity03','Unit03']
+        CSV.open("recipes.csv", "a+", :headers => recipe.keys, write_headers: true) do |csv|
+            csv << recipe.values
+          end
     end
 
     # def saved_recipes
