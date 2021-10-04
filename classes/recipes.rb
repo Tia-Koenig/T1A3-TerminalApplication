@@ -1,9 +1,10 @@
 require_relative "../recipes_data.rb"
 require "csv"
+require "tty-table"
+require "artii"
 
 class Recipes
-    attr_reader 
-    # :formatted_recipes
+    attr_reader
     def initialize
         # Recipe class calls the formatted_recipes function and stores it's value in a variable called recipe_data. This can then be used in the class methods
         @recipe_data = formatted_recipes()
@@ -17,20 +18,20 @@ class Recipes
             recipe.each do |key, value|
                 i = 1
                 if ingredients.include?(value)
-                    puts "Title: #{recipe[:title]}"
-                    puts "Directions: #{recipe[:directions]}"
-                    puts "Ingredients List:"
+                    table = TTY::Table.new(["ID", "Title", "Directions", "Ingredient 1", "Quantity 1", "Unit 1", "Ingredient 2", "Quantity 2", "Unit 2", "Ingredient 3", "Quantity 3", "Unit 3"], [[recipe[:id], recipe[:title], recipe[:directions], recipe[:ingredient01], recipe[:quantity01], recipe[:unit01], recipe[:ingredient02], recipe[:quantity02], recipe[:unit02], recipe[:ingredient03], recipe[:quantity03], recipe[:unit03]]])
+            
+                    # puts "Title: #{recipe[:title]}"
+                    # puts "Directions: #{recipe[:directions]}"
                     while i < 4
                         ingredient = "ingredient0#{i}".to_sym
                         quantity = "quantity0#{i}".to_sym
                         unit = "unit0#{i}".to_sym
-
-                        puts "Ingredient: #{recipe[ingredient]}: Quantity: #{recipe[quantity]} Unit: #{recipe[unit]}"
                         i = i + 1
                     end 
+                    # else
+                    #     puts "Sorry, we couldn't find a match, please search for another ingredient"
+                    puts table.render(:unicode, multiline: true, alignments: [:left, :left])
                     puts "---------------------------------------------------------------------------------------\n\n"
-                # else
-                #     puts "Sorry, we couldn't find a match, please search for another ingredient"
                 end
             end
         end
@@ -49,9 +50,6 @@ class Recipes
         end
         puts "Recipe added to file successfully!"
     end
-
-    # def saved_recipes
-    # end
 
     def remove_recipe(recipe)
         system 'clear'

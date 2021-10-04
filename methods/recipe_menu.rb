@@ -6,6 +6,7 @@ require_relative "main_menu.rb"
 require_relative "../user_specific_methods/get_recipe_to_delete.rb"
 require_relative "../utility_methods/exit.rb"
 
+#Recipe menu options
 
 def recipes_menu_options 
     system 'clear'
@@ -23,16 +24,12 @@ def recipes_menu_options
             value: 3
         },
         {
-            name: "Saved recipe list", 
+            name: "Back to Main Menu",
             value: 4
         },
         {
-            name: "Back to Main Menu",
-            value: 5
-        },
-        {
             name: "Exit",
-            value: 6
+            value: 5
         }
     ]
 end
@@ -54,10 +51,8 @@ def recipe_menu(menu_options)
             remove_recipe = Recipes.new 
             remove_recipe.remove_recipe(recipe_id)
         when 4
-            
-        when 5
             menu_select(main_menu_options())
-        when 6
+        when 5
             exit()
         end
     end

@@ -1,3 +1,6 @@
+require "artii"
+
 def welcome_message 
-    return "\nWelcome to my App - What to cook?\n\n"
+    welcome = Artii::Base.new
+puts welcome.asciify('3   ingredient   cookbook !')
 end

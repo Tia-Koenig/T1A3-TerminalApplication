@@ -8,38 +8,30 @@ require_relative "../utility_methods/exit.rb"
 # Main menu options
 
 def main_menu_options 
-    system 'clear'
     return [
         {
             name: "Recipes",
             value: 1
         },
         {
-            name: "Pantry",
+            name: "Help", 
             value: 2
         },
         {
-            name: "Help", 
-            value: 3
-        },
-        {
             name: "Exit", 
-            value: 4
+            value: 3
         }
     ]
 end
 
 def main_menu(menu_options)
-    system 'clear'
     loop do
         case menu_select(menu_options)
         when 1
             recipe_menu(recipes_menu_options())
         when 2
-           
-        when 3
             display_message(help_message())
-        when 4
+        when 3
             exit()
         end
     end
