@@ -20,21 +20,16 @@ class Recipes
                     puts "Title: #{recipe[:title]}"
                     puts "Directions: #{recipe[:directions]}"
                     puts "Ingredients List:"
-                    while i < 10
+                    while i < 4
                         ingredient = "ingredient0#{i}".to_sym
-                        quantity = if i == 1 
-                            "quantity".to_sym
-                        else
-                            "quantity0#{i}".to_sym
-                        
-                        end
+                        quantity = "quantity0#{i}".to_sym
                         unit = "unit0#{i}".to_sym
 
                         puts "Ingredient: #{recipe[ingredient]}: Quantity: #{recipe[quantity]} Unit: #{recipe[unit]}"
                         i = i + 1
                     end 
-                        puts "---------------------------------------------------------------------------------------\n\n"
-                # else ingredients != ingredients.include?(value)
+                    puts "---------------------------------------------------------------------------------------\n\n"
+                # else
                 #     puts "Sorry, we couldn't find a match, please search for another ingredient"
                 end
             end
@@ -42,6 +37,7 @@ class Recipes
     end
 
     def add_recipe(recipe)
+        system 'clear'
         if (File.exist?("recipes.csv"))
             CSV.open("recipes.csv", "a+", :row_sep => "\r\n") do |csv|
                 csv << recipe.values
@@ -57,6 +53,8 @@ class Recipes
     # def saved_recipes
     # end
 
-    # def remove_recipe
-    # end
+    def remove_recipe(id)
+        puts id
+
+    end
 end
