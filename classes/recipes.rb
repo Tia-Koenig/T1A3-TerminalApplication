@@ -54,7 +54,6 @@ class Recipes
     # end
 
     def remove_recipe(id)
-        puts id
-
+        end
     end
 end
