@@ -3,7 +3,7 @@ require_relative "../user_specific_methods/get_ingredient_list.rb"
 require_relative "../user_specific_methods/get_recipe_hash.rb"
 require_relative "../classes/recipes.rb"
 require_relative "main_menu.rb"
-require_relative "../user_specific_methods/get_recipe_id.rb"
+require_relative "../user_specific_methods/get_recipe_to_delete.rb"
 require_relative "../utility_methods/exit.rb"
 
 
@@ -50,7 +50,7 @@ def recipe_menu(menu_options)
             add_recipe = Recipes.new
             add_recipe.add_recipe(recipe_hash)
         when 3
-            recipe_id = get_recipe_id()
+            recipe_id = get_recipe_to_delete()
             remove_recipe = Recipes.new 
             remove_recipe.remove_recipe(recipe_id)
         when 4

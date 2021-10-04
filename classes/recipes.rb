@@ -39,7 +39,7 @@ class Recipes
     def add_recipe(recipe)
         system 'clear'
         if (File.exist?("recipes.csv"))
-            CSV.open("recipes.csv", "a+", :row_sep => "\r\n") do |csv|
+            CSV.open("recipes.csv", "a+") do |csv|
                 csv << recipe.values
             end
         else 
@@ -53,7 +53,24 @@ class Recipes
     # def saved_recipes
     # end
 
-    def remove_recipe(id)
+    def remove_recipe(recipe)
+        system 'clear'
+        puts "Are you sure you want to delete:\n#{recipe[:id]}. #{recipe[:title]} yes/no?"
+        yes_or_no = gets.chomp.downcase
+        if yes_or_no == "yes"
+            recipes = CSV.table("recipes.csv")
+            recipes.delete_if do |row|
+                row[:id] == recipe[:id]
+            end
+            File.open("recipes.csv", 'w') do |file|
+                file.write(recipes.to_csv)
+            end
+        elsif yes_or_no == "no"
+            return
+        else 
+            "Invalid input, please enter yes or no"
         end
+
     end
+
 end
