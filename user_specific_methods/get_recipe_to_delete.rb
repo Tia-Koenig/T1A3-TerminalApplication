@@ -12,6 +12,6 @@ def get_recipe_to_delete
         recipe = recipe_data.find {|recipe| recipe[:id] == id}
         return recipe
     else
-        puts "Recipe ID not found, please enter a valid ID"
+        puts Rainbow("Recipe ID not found, please enter a valid ID").red
     end
 end

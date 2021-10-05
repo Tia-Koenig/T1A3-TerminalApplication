@@ -19,18 +19,13 @@ class Recipes
                 i = 1
                 if ingredients.include?(value)
                     table = TTY::Table.new(["ID", "Title", "Directions", "Ingredient 1", "Quantity 1", "Unit 1", "Ingredient 2", "Quantity 2", "Unit 2", "Ingredient 3", "Quantity 3", "Unit 3"], [[recipe[:id], recipe[:title], recipe[:directions], recipe[:ingredient01], recipe[:quantity01], recipe[:unit01], recipe[:ingredient02], recipe[:quantity02], recipe[:unit02], recipe[:ingredient03], recipe[:quantity03], recipe[:unit03]]])
-            
-                    # puts "Title: #{recipe[:title]}"
-                    # puts "Directions: #{recipe[:directions]}"
                     while i < 4
                         ingredient = "ingredient0#{i}".to_sym
                         quantity = "quantity0#{i}".to_sym
                         unit = "unit0#{i}".to_sym
                         i = i + 1
                     end 
-                    # else
-                    #     puts "Sorry, we couldn't find a match, please search for another ingredient"
-                    puts table.render(:unicode, multiline: true, alignments: [:left, :left])
+                    puts table.render(:unicode, multiline:true, alignments: [:left, :left])
                     puts "---------------------------------------------------------------------------------------\n\n"
                 end
             end
@@ -48,12 +43,13 @@ class Recipes
                 csv << recipe.values
             end
         end
-        puts "Recipe added to file successfully!"
+        puts Rainbow("Recipe added to file successfully!").green
     end
 
     def remove_recipe(recipe)
         system 'clear'
-        puts "Are you sure you want to delete:\n#{recipe[:id]}. #{recipe[:title]} yes/no?"
+        puts "Are you sure you want to delete:\n#{recipe[:id]}.
+        #{recipe[:title]} yes/no?"
         yes_or_no = gets.chomp.downcase
         if yes_or_no == "yes"
             recipes = CSV.table("recipes.csv")
@@ -66,7 +62,7 @@ class Recipes
         elsif yes_or_no == "no"
             return
         else 
-            "Invalid input, please enter yes or no"
+            puts Rainbow("Invalid input, please enter yes or no").red
         end
 
     end

@@ -11,3 +11,5 @@ gem "rspec"
 gem "simplecov"
 
 gem "jeweler"
+
+gem "rainbow"

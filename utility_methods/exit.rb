@@ -1,4 +1,6 @@
+require "rainbow"
+
 def exit
-    puts "Thanks for using my app! Goodbye!"
+    puts Rainbow("Thanks for using my app! Goodbye!").magenta
     exit!
 end

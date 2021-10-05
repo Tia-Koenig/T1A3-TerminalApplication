@@ -1,3 +1,5 @@
+require "rainbow"
+
 def get_ingredient_list
     puts "What ingredient do you have to cook with?"
 
@@ -15,7 +17,7 @@ def get_ingredient_list
         elsif yes_or_no == "no"
             break
         else 
-            puts "Invalid input, please enter either yes or no"
+            puts Rainbow("Invalid input, please enter either yes or no").red
         end
     end
 

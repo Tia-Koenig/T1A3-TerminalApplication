@@ -2,5 +2,5 @@ require "artii"
 
 def welcome_message 
     welcome = Artii::Base.new
-puts welcome.asciify('3   ingredient   cookbook !')
+puts Rainbow(welcome.asciify('3   ingredient   cookbook !')).magenta
 end
