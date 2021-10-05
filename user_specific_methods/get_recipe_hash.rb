@@ -38,7 +38,7 @@ def get_recipe_hash
         system 'clear'
         puts "Ingredient added, please enter another ingredient"
         ingredient = gets.chomp
-        puts "Please enter the quantitiy"
+        puts "Please enter the quantity"
         quantity = gets.chomp
         puts "Please enter a unit of measure"
         unit = gets.chomp

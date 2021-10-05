@@ -19,27 +19,14 @@ class Recipes
             recipe.each do |key, value|
                 i = 1
                 if ingredients.include?(value)
-                    rows = []
-                    rows << ["ID: #{recipe[:id]}", 
-                    "Title: #{recipe[:title]}", 
-                    "Directions: #{recipe[:directions]}", 
-                    "Ingredient 1: #{recipe[:ingredient01]}", 
-                    "Quantity 1: #{recipe[:quantity01]}", 
-                    "Unit 1: #{recipe[:unit01]}", 
-                    "Ingredient 2: #{recipe[:ingredient02]}", 
-                    "Quantity 2: #{recipe[:quantity02]}", 
-                    "Unit 2: #{recipe[:unit02]}", 
-                    "Ingredient 3: #{recipe[:ingredient03]}", 
-                    "Quantity 3: #{recipe[:quantity03]}", 
-                    "Unit 3: #{recipe[:unit03]}"]
-
+                    puts "ID: #{recipe[:id]}\nTitle: #{recipe[:title]}\nDirections: #{recipe[:directions]}"
                     while i < 4
                         ingredient = "ingredient0#{i}".to_sym
                         quantity = "quantity0#{i}".to_sym
                         unit = "unit0#{i}".to_sym
+                        puts "Ingredient #{i}: #{recipe[ingredient]}\nQuantity #{i}: #{recipe[quantity]}\nUnit #{i}: #{recipe[unit]}"
                         i = i + 1
                     end 
-                    puts rows
                     puts "---------------------------------------------------------------------------------------\n\n"
                 end
             end
