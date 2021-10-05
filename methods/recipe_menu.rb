@@ -48,8 +48,12 @@ def recipe_menu(menu_options)
             add_recipe.add_recipe(recipe_hash)
         when 3
             recipe_id = get_recipe_to_delete()
-            remove_recipe = Recipes.new 
-            remove_recipe.remove_recipe(recipe_id)
+            if recipe_id != nil
+                remove_recipe = Recipes.new 
+                remove_recipe.remove_recipe(recipe_id)
+            else
+                break
+            end
         when 4
             menu_select(main_menu_options())
         when 5

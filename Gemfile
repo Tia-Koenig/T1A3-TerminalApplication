@@ -13,3 +13,5 @@ gem "simplecov"
 gem "jeweler"
 
 gem "rainbow"
+
+gem "terminal-table"

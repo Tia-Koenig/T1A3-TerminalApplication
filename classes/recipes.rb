@@ -2,6 +2,7 @@ require_relative "../recipes_data.rb"
 require "csv"
 require "tty-table"
 require "artii"
+require "terminal-table"
 
 class Recipes
     attr_reader
@@ -18,14 +19,27 @@ class Recipes
             recipe.each do |key, value|
                 i = 1
                 if ingredients.include?(value)
-                    table = TTY::Table.new(["ID", "Title", "Directions", "Ingredient 1", "Quantity 1", "Unit 1", "Ingredient 2", "Quantity 2", "Unit 2", "Ingredient 3", "Quantity 3", "Unit 3"], [[recipe[:id], recipe[:title], recipe[:directions], recipe[:ingredient01], recipe[:quantity01], recipe[:unit01], recipe[:ingredient02], recipe[:quantity02], recipe[:unit02], recipe[:ingredient03], recipe[:quantity03], recipe[:unit03]]])
+                    rows = []
+                    rows << ["ID: #{recipe[:id]}", 
+                    "Title: #{recipe[:title]}", 
+                    "Directions: #{recipe[:directions]}", 
+                    "Ingredient 1: #{recipe[:ingredient01]}", 
+                    "Quantity 1: #{recipe[:quantity01]}", 
+                    "Unit 1: #{recipe[:unit01]}", 
+                    "Ingredient 2: #{recipe[:ingredient02]}", 
+                    "Quantity 2: #{recipe[:quantity02]}", 
+                    "Unit 2: #{recipe[:unit02]}", 
+                    "Ingredient 3: #{recipe[:ingredient03]}", 
+                    "Quantity 3: #{recipe[:quantity03]}", 
+                    "Unit 3: #{recipe[:unit03]}"]
+
                     while i < 4
                         ingredient = "ingredient0#{i}".to_sym
                         quantity = "quantity0#{i}".to_sym
                         unit = "unit0#{i}".to_sym
                         i = i + 1
                     end 
-                    puts table.render(:unicode, multiline:true, alignments: [:left, :left])
+                    puts rows
                     puts "---------------------------------------------------------------------------------------\n\n"
                 end
             end
@@ -55,16 +69,16 @@ class Recipes
             recipes = CSV.table("recipes.csv")
             recipes.delete_if do |row|
                 row[:id] == recipe[:id]
+                
             end
             File.open("recipes.csv", 'w') do |file|
                 file.write(recipes.to_csv)
+                puts Rainbow("Recipe deleted!").green
             end
         elsif yes_or_no == "no"
             return
         else 
             puts Rainbow("Invalid input, please enter yes or no").red
         end
-
     end
-
 end
