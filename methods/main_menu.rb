@@ -6,7 +6,6 @@ require_relative "../utility_methods/exit.rb"
 
 
 # Main menu options
-
 def main_menu_options 
     return [
         {
