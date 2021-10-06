@@ -9,14 +9,6 @@
 1. Run the start_application script by typing ./start_application.sh into the terminal 
 2. Select one of the following options, start, which will install all required gems and start the application. -h which will install all required gems as well as prompt you with the Help message. -a which will install all required gems and display a list of all the recipes. quit which will exit the script.
 
-Design help documentation which includes a set of instructions which accurately describe how to use and install the application.
-
-You must include:
-- steps to install the application
-- any dependencies required by the application to operate
-- any system/hardware requirements
-
-# **Provide full attribution to referenced sources (where applicable).**
 
 # **Source Control Links**
 
@@ -48,18 +40,6 @@ This feature allows the user to remove a recipe, when they select this option, t
 
 
 # **Flowchart**
-Develop a diagram which describes the control flow of your application. Your diagram must:
-- show the workflow/logic and/or integration of the features in your application for each feature.
-- utilise a recognised format or set of conventions for a control flow diagram, such as UML.
-
-# ****
-Develop an implementation plan which:
-- outlines how each feature will be implemented and a checklist of tasks for each feature
-- prioritise the implementation of different features, or checklist items within a feature
-- provide a deadline, duration or other time indicator for each feature or checklist/checklist-item
-
-Utilise a suitable project management platform to track this implementation plan
-
-> Your checklists for each feature should have at least 5 items.
+![Flowchart](./docs/flowchart.jpg)
 
 
