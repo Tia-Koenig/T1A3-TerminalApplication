@@ -6,12 +6,8 @@
 
 ## **Installation steps**
 
-1. 
-2.  
-3. 
-4. 
-
-
+1. Run the start_application script by typing ./start_application.sh into the terminal 
+2. Select one of the following options, start, which will install all required gems and start the application. -h which will install all required gems as well as prompt you with the Help message. -a which will install all required gems and display a list of all the recipes. quit which will exit the script.
 
 Design help documentation which includes a set of instructions which accurately describe how to use and install the application.
 
